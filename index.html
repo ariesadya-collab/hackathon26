@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hackathon ’26 | International Student Research Hackathon</title>
+<meta name="description" content="Hackathon ’26 is an international student research hackathon led by The Speakers Floor, running 11 October – 28 November 2026 across six interdisciplinary research tracks.">
+<!-- PLACEHOLDER: replace with your live URL, e.g. https://username.github.io/repo/ -->
+<link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hackathon ’26 | Ideas Worth Investigating">
+<meta property="og:description" content="An international student research hackathon, 11 October – 28 November 2026. Led by The Speakers Floor.">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO/">
+<!-- PLACEHOLDER: add og:image once a share image is hosted -->
+<meta name="theme-color" content="#07080f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2307080f'/%3E%3Cpath d='M8 22V10m16 12V10M8 16h16' stroke='%238b5cf6' stroke-width='3' fill='none'/%3E%3Ccircle cx='24' cy='10' r='2.5' fill='%235ee0f2'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#07080f;--bg2:#0d0f1c;--line:#23263d;--text:#f2f3f8;--grey:#a3a8bd;
+  --violet:#8b5cf6;--violet-soft:#b79dfb;--cyan:#5ee0f2;
+  --display:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --wrap:min(1160px,100% - 2.5rem);
+  --nav:68px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav) + 12px)}
+body{background:var(--bg);color:var(--text);font:400 clamp(1rem,.96rem + .2vw,1.125rem)/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--cyan);color:#000;padding:.6rem 1rem;z-index:100}
+.skip:focus{left:8px}
+.wrap{width:var(--wrap);margin-inline:auto}
+section{padding:clamp(4.5rem,9vw,8rem) 0;position:relative}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.015em}
+h2{font-size:clamp(2.2rem,1.4rem + 3.6vw,4.2rem);max-width:16ch}
+.lede{color:var(--grey);max-width:60ch;margin-top:1.25rem}
+.eyebrow{font:600 .78rem/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:1.25rem;display:block}
+.btn{display:inline-block;padding:.9rem 1.5rem;border-radius:3px;font-weight:600;text-decoration:none;border:1px solid var(--violet);transition:background .2s,border-color .2s,transform .2s}
+.btn-p{background:var(--violet);color:#fff}
+.btn-p:hover{background:#9b72f8;transform:translateY(-2px)}
+.btn-s{color:var(--text);border-color:var(--line)}
+.btn-s:hover{border-color:var(--cyan);color:var(--cyan)}
+
+/* NAV */
+header{position:fixed;inset:0 0 auto;height:var(--nav);z-index:50;background:rgba(7,8,15,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:100%}
+.mark{font:700 1.35rem var(--display);text-decoration:none;letter-spacing:-.01em}
+.mark span{color:var(--violet-soft)}
+.links{display:flex;align-items:center;gap:1.75rem}
+.links a:not(.btn){text-decoration:none;color:var(--grey);font-size:.95rem;padding:.4rem 0;border-bottom:2px solid transparent;transition:color .2s}
+.links a:not(.btn):hover{color:var(--text)}
+.links a[aria-current="true"]{color:var(--text);border-bottom-color:var(--violet)}
+.links .btn{padding:.6rem 1.1rem;font-size:.9rem}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--text);width:44px;height:44px;border-radius:3px;cursor:pointer}
+.burger svg{display:block;margin:auto}
+@media(max-width:860px){
+  .burger{display:block}
+  .links{position:absolute;top:var(--nav);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg2);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1.25rem;display:none}
+  .links.open{display:flex}
+  .links a:not(.btn){padding:.9rem 0;border-bottom:1px solid var(--line)}
+  .links .btn{margin-top:1rem;text-align:center}
+}
+
+/* HERO */
+.hero{min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav) + 3rem) 0 4rem;overflow:hidden;background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/72px 72px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/72px 72px;
+  background-color:var(--bg)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 75% 40%,rgba(139,92,246,.16),transparent 70%),linear-gradient(90deg,var(--bg) 20%,rgba(7,8,15,.55) 70%,rgba(7,8,15,.2));pointer-events:none}
+.hero .wrap{position:relative;animation:rise .9s ease both}
+.hero h1{font-size:clamp(3.2rem,1.2rem + 9vw,8rem);max-width:9ch}
+.hero p.lede{font-size:clamp(1.05rem,1rem + .4vw,1.3rem);color:#c4c8da}
+.dates{font:600 clamp(.95rem,.9rem + .3vw,1.15rem)/1 var(--body);letter-spacing:.16em;margin-top:2rem;color:var(--cyan)}
+.cta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.25rem}
+.net{position:absolute;right:-6%;top:50%;transform:translateY(-50%);width:min(780px,70vw);opacity:.9;pointer-events:none}
+@media(max-width:700px){.net{opacity:.35;right:-30%;width:120vw}}
+.pulse{animation:pulse 4s ease-in-out infinite}
+.pulse:nth-of-type(2n){animation-delay:1.3s}
+@keyframes pulse{50%{opacity:.35}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:start}
+.about-grid p+p{margin-top:1rem}
+.about-grid .copy p{color:var(--grey)}
+.principles{margin-top:3.5rem;border-top:1px solid var(--line)}
+.principles li{display:grid;grid-template-columns:5rem 11rem 1fr;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--line);align-items:baseline}
+.principles .n{font:700 1.6rem var(--display);color:var(--violet-soft)}
+.principles h3{font-size:1.4rem;letter-spacing:.06em}
+.principles p{color:var(--grey)}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}.principles li{grid-template-columns:3.2rem 1fr;}.principles p{grid-column:2}}
+
+/* TRACKS */
+.tracks{background:var(--bg2);border-block:1px solid var(--line)}
+.track-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:3.5rem;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.track{padding:2rem 1.75rem 2.25rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;transition:background .25s;scroll-margin-top:calc(var(--nav) + 20px)}
+.track::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--tc,var(--violet));transition:width .35s}
+.track:hover,.track:target{background:rgba(255,255,255,.03)}
+.track:hover::after,.track:target::after{width:100%}
+.track .ic{width:52px;height:52px;color:var(--tc,var(--violet-soft));margin-bottom:1.5rem;transition:transform .3s}
+.track:hover .ic{transform:translateY(-3px)}
+.track .tn{font:600 .85rem var(--body);letter-spacing:.14em;color:var(--grey)}
+.track h3{font-size:1.5rem;margin:.4rem 0 .9rem;line-height:1.15}
+.track p{color:var(--grey);font-size:.98rem}
+.t1{--tc:#ff7aa8}.t2{--tc:var(--violet-soft)}.t3{--tc:var(--cyan)}.t4{--tc:#7be0a4}.t5{--tc:#f0c674}.t6{--tc:#ff9a6b}
+@media(max-width:960px){.track-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.track-grid{grid-template-columns:1fr}}
+
+/* TIMELINE */
+.tl{margin-top:3.5rem;position:relative}
+.tl::before{content:"";position:absolute;left:11.4rem;top:.5rem;bottom:.5rem;width:1px;background:linear-gradient(var(--violet),var(--cyan))}
+.wk{display:grid;grid-template-columns:10.5rem 1fr;gap:3rem;padding-bottom:3rem;position:relative}
+.wk::before{content:"";position:absolute;left:10.9rem;top:.55rem;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--violet)}
+.wk .when b{display:block;font:700 1.9rem/1 var(--display)}
+.wk .when span{display:block;margin-top:.4rem;color:var(--grey);font-size:.95rem}
+.wk h3{font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem)}
+.wk .g{color:var(--grey);margin:.7rem 0 1.25rem;max-width:62ch}
+.sub{border:1px solid var(--line);background:var(--bg2);padding:1.25rem 1.5rem;max-width:62ch}
+.sub h4{font:600 .78rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem}
+.sub li{padding:.3rem 0 .3rem 1.6rem;position:relative;font-size:.98rem}
+.sub li::before{content:"";position:absolute;left:0;top:.62rem;width:.8rem;height:.8rem;border:1.5px solid var(--violet-soft);border-radius:2px}
+.carry{margin-top:1.5rem;color:var(--grey);font-size:.95rem;max-width:62ch;border-left:2px solid var(--violet);padding-left:1rem}
+.wk.final::before{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 0 5px rgba(94,224,242,.18);width:13px;height:13px;left:10.8rem}
+.wk.final .when b{color:var(--cyan)}
+.wk.final .sub{border-color:var(--cyan);background:linear-gradient(135deg,rgba(94,224,242,.08),rgba(139,92,246,.1))}
+.wk.final{padding-bottom:0}
+@media(max-width:760px){
+  .tl::before{left:5px}
+  .wk{grid-template-columns:1fr;gap:.9rem;padding-left:2rem}
+  .wk::before,.wk.final::before{left:0}
+  .wk.final::before{left:-1px}
+  .wk .when b{display:inline;font-size:1.5rem}
+  .wk .when span{display:inline;margin-left:.6rem}
+}
+
+/* PRIZES */
+.prizes{background:var(--bg2);border-block:1px solid var(--line)}
+.prize-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(2rem,6vw,6rem);margin-top:3rem;align-items:start}
+.pool{border:1px solid var(--line);padding:2rem}
+.pool small{display:block;color:var(--grey);letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;margin-bottom:.8rem}
+.pool b{display:block;font:700 clamp(3.5rem,2rem + 6vw,6rem)/1 var(--display);color:var(--violet-soft)}
+.pool p{color:var(--grey);margin-top:.8rem;font-size:.95rem}
+.awards li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.35rem 0;border-bottom:1px solid var(--line)}
+.awards li:first-child{padding-top:0}
+.awards .l{font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.9rem;color:var(--grey)}
+.awards .a{font:700 clamp(1.8rem,1.3rem + 2vw,3rem)/1 var(--display)}
+.awards li:first-child .a{color:var(--cyan);font-size:clamp(2.4rem,1.6rem + 3vw,4rem)}
+.awards .a em{font:400 .95rem var(--body);color:var(--grey);font-style:normal;margin-left:.4rem}
+@media(max-width:860px){.prize-wrap{grid-template-columns:1fr}}
+
+/* PARTNERS */
+.lead{border:1px solid var(--violet);padding:clamp(2rem,5vw,3.5rem);margin-top:3rem;background:linear-gradient(120deg,rgba(139,92,246,.14),transparent 70%)}
+.lead small,.pgroup h3{font:600 .78rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.lead b{display:block;font:700 clamp(2.4rem,1.4rem + 5vw,5rem)/1.05 var(--display);margin-top:.8rem}
+.pgroups{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.pgroup h3{margin-bottom:1rem;display:block}
+.pgroup ul{display:grid;gap:.75rem}
+.pgroup li{border:1px solid var(--line);padding:1.1rem 1.25rem;font:700 1.15rem var(--display)}
+.pgroup li span{display:block;font:400 .85rem var(--body);color:var(--grey);margin-top:.15rem}
+.pgroup .row{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.pgroups{grid-template-columns:1fr}.pgroup .row{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-list{margin-top:3rem;max-width:860px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:1.35rem 3rem 1.35rem 0;font:700 clamp(1.15rem,1rem + .6vw,1.5rem)/1.3 var(--display);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:.4rem;top:50%;width:10px;height:10px;border-right:2px solid var(--violet-soft);border-bottom:2px solid var(--violet-soft);transform:translateY(-70%) rotate(45deg);transition:transform .25s}
+details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details>div{padding:0 0 1.5rem;color:var(--grey);max-width:66ch}
+details>div li{margin:.25rem 0 .25rem 1.1rem;list-style:disc}
+details>div a{color:var(--cyan)}
+
+/* CONTACT / FOOTER */
+.contact{text-align:left;border-top:1px solid var(--line)}
+.mail{display:inline-block;margin-top:2rem;font:700 clamp(1.2rem,.8rem + 2.4vw,2.4rem) var(--display);color:var(--cyan);text-decoration:none;border-bottom:2px solid var(--violet);word-break:break-all}
+.mail:hover{color:#fff}
+footer{background:var(--bg2);border-top:1px solid var(--line);padding:4rem 0 2rem;color:var(--grey);font-size:.95rem}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem}
+.fgrid h4{color:var(--text);font:600 .78rem var(--body);letter-spacing:.16em;text-transform:uppercase;margin-bottom:.9rem}
+.fgrid li{padding:.2rem 0}
+.fgrid a{text-decoration:none}.fgrid a:hover{color:var(--cyan)}
+.copy-r{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:.85rem}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr}}
+
+.top{position:fixed;right:1.25rem;bottom:1.25rem;width:44px;height:44px;border-radius:3px;background:var(--bg2);border:1px solid var(--line);color:var(--text);display:grid;place-items:center;text-decoration:none;opacity:0;pointer-events:none;transition:opacity .25s;z-index:40}
+.top.show{opacity:1;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="mark" href="#top" aria-label="Hackathon ’26, back to top">Hackathon <span>’26</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="links" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h16M3 11h16M3 16h16"/></svg>
+    </button>
+    <div class="links" id="links">
+      <a href="#about">About</a>
+      <a href="#tracks">Tracks</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#prizes">Prizes</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-p" href="#tracks">Explore Tracks</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <svg class="net" viewBox="0 0 600 600" fill="none" aria-hidden="true" focusable="false">
+    <g stroke="#8b5cf6" stroke-opacity=".55" stroke-width="1">
+      <path d="M300 300 140 150M300 300 470 120M300 300 520 330M300 300 400 520M300 300 130 440M140 150 470 120M470 120 520 330M520 330 400 520M400 520 130 440M130 440 140 150M140 150 60 270M130 440 70 540M470 120 540 40M520 330 580 450"/>
+    </g>
+    <g stroke="#5ee0f2" stroke-opacity=".35" stroke-dasharray="3 6">
+      <circle cx="300" cy="300" r="90"/><circle cx="300" cy="300" r="170"/><circle cx="300" cy="300" r="250"/>
+    </g>
+    <g stroke="#5ee0f2" stroke-opacity=".5"><path d="M300 40v40M300 520v40M40 300h40M520 300h40"/></g>
+    <g fill="#07080f" stroke="#b79dfb" stroke-width="1.5">
+      <circle cx="140" cy="150" r="9"/><circle cx="470" cy="120" r="12"/><circle cx="520" cy="330" r="8"/><circle cx="400" cy="520" r="10"/><circle cx="130" cy="440" r="11"/>
+      <circle cx="60" cy="270" r="5"/><circle cx="70" cy="540" r="5"/><circle cx="540" cy="40" r="5"/><circle cx="580" cy="450" r="5"/>
+    </g>
+    <circle class="pulse" cx="300" cy="300" r="22" fill="#8b5cf6" fill-opacity=".25" stroke="#8b5cf6"/>
+    <circle cx="300" cy="300" r="7" fill="#5ee0f2"/>
+    <circle class="pulse" cx="470" cy="120" r="5" fill="#5ee0f2"/>
+    <circle class="pulse" cx="130" cy="440" r="5" fill="#8b5cf6"/>
+    <circle class="pulse" cx="400" cy="520" r="4" fill="#5ee0f2"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">International Student Research Hackathon</span>
+    <h1>Ideas Worth Investigating.</h1>
+    <p class="lede">An international student research hackathon turning complex questions into structured research, evidence-based insights, and meaningful solutions.</p>
+    <p class="dates">11 OCTOBER — 28 NOVEMBER 2026</p>
+    <div class="cta">
+      <a class="btn btn-p" href="#tracks">Explore the Tracks</a>
+      <a class="btn btn-s" href="#timeline">View the Timeline</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div><span class="eyebrow">About</span><h2>Research beyond the obvious.</h2></div>
+      <div class="copy">
+        <p>Hackathon ’26 guides students through a structured research journey: defining a problem, developing a research question, evaluating existing work, analysing evidence, refining arguments, and producing a complete final project.</p>
+        <p>Beginners are welcome. Participants are guided through a progressive research process, with each stage building on the one before.</p>
+      </div>
+    </div>
+    <ul class="principles">
+      <li><span class="n">01</span><h3>Question</h3><p>Identify meaningful problems and formulate focused research questions.</p></li>
+      <li><span class="n">02</span><h3>Investigate</h3><p>Use credible sources, evaluate evidence, and examine competing explanations.</p></li>
+      <li><span class="n">03</span><h3>Build</h3><p>Develop a coherent research project with defensible reasoning, appropriate references, and proportionate conclusions.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="tracks" id="tracks">
+  <div class="wrap">
+    <span class="eyebrow">Six research tracks</span>
+    <h2>Choose where to look.</h2>
+    <p class="lede">Six interdisciplinary tracks. Each participant selects one in Week 1 and carries it through the full research process.</p>
+    <div class="track-grid">
+      <article class="track t1" id="track-1">
+        <svg class="ic" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 6c0 14 24 14 24 28s-24 14-24 12M38 6c0 14-24 14-24 28M18 14h16M18 38h16"/><circle cx="26" cy="26" r="2" fill="currentColor"/></svg>
+        <span class="tn">01</span><h3>Health &amp; Life Sciences</h3>
+        <p>Explore questions concerning human health, biology, medicine, public health, biotechnology, and life sciences through structured investigation and credible evidence.</p>
+      </article>
+      <article class="track t2" id="track-2">
+        <svg class="ic" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="14" y="14" width="24" height="24" rx="2"/><path d="M20 8v6M32 8v6M20 38v6M32 38v6M8 20h6M8 32h6M38 20h6M38 32h6"/><circle cx="26" cy="26" r="4"/></svg>
+        <span class="tn">02</span><h3>Technology &amp; AI</h3>
+        <p>Investigate artificial intelligence, emerging technologies, digital systems, technological innovation, and their technical or societal implications.</p>
+      </article>
+      <article class="track t3" id="track-3">
+        <svg class="ic" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 8v36h36"/><path d="M14 34l8-10 7 5 11-15"/><circle cx="14" cy="34" r="2.5" fill="currentColor"/><circle cx="22" cy="24" r="2.5" fill="currentColor"/><circle cx="29" cy="29" r="2.5" fill="currentColor"/><circle cx="40" cy="14" r="2.5" fill="currentColor"/></svg>
+        <span class="tn">03</span><h3>Data Science &amp; Analytics</h3>
+        <p>Explore how data can be collected, interpreted, analysed, and used to investigate questions, identify patterns, and support evidence-based conclusions.</p>
+      </article>
+      <article class="track t4" id="track-4">
+        <svg class="ic" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M26 44V24M26 30c-10 0-14-8-14-16 10 0 14 6 14 16zM26 24c8 0 12-6 12-14-8 0-12 5-12 14z"/><path d="M12 44h28"/></svg>
+        <span class="tn">04</span><h3>Environment &amp; Sustainability</h3>
+        <p>Investigate environmental challenges, climate, conservation, resource use, sustainable development, and possible evidence-based responses.</p>
+      </article>
+      <article class="track t5" id="track-5">
+        <svg class="ic" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="26" cy="26" r="18"/><path d="M8 26h36M26 8c-9 9-9 27 0 36M26 8c9 9 9 27 0 36"/></svg>
+        <span class="tn">05</span><h3>Law, Policy &amp; Global Affairs</h3>
+        <p>Explore legal systems, public policy, international relations, governance, human rights, institutions, and global challenges.</p>
+      </article>
+      <article class="track t6" id="track-6">
+        <svg class="ic" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M18 34c-4-4-4-12 0-16a12 12 0 0 1 16 0c4 4 4 12 0 16-3 3-3 6-3 8H21c0-2 0-5-3-8zM21 46h10"/><path d="M26 22v8M22 26h8"/></svg>
+        <span class="tn">06</span><h3>Innovation &amp; Entrepreneurship</h3>
+        <p>Investigate business models, social innovation, entrepreneurial ideas, markets, organisational challenges, and the feasibility of proposed solutions.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <span class="eyebrow">Seven weeks</span>
+    <h2>From first idea to finished project.</h2>
+    <p class="lede">Each stage builds on the previous one. Projects may use different methodologies suited to their subject. Every week lists what to submit.</p>
+    <div class="tl">
+      <article class="wk">
+        <div class="when"><b>Week 01</b><span>11–17 October</span></div>
+        <div><h3>Choose a Topic and Define the Problem</h3>
+          <p class="g">Select a research track, identify a problem worth investigating, and turn the initial idea into a focused research question.</p>
+          <div class="sub"><h4>Required submission</h4><ul><li>Selected track</li><li>Proposed research title</li><li>Focused research question</li><li>Brief problem explanation</li></ul></div></div>
+      </article>
+      <article class="wk">
+        <div class="when"><b>Week 02</b><span>18–24 October</span></div>
+        <div><h3>Plan the Research</h3>
+          <p class="g">Develop a clear research plan explaining what will be investigated, why it matters, what the research will cover, and how the investigation will be approached.</p>
+          <div class="sub"><h4>Required submission</h4><ul><li>Research proposal</li><li>Refined research question</li><li>Research objectives</li><li>Scope of the research</li><li>Significance of the research</li><li>Preliminary methodology</li><li>Initial sources</li></ul></div></div>
+      </article>
+      <article class="wk">
+        <div class="when"><b>Week 03</b><span>25–31 October</span></div>
+        <div><h3>Understand Existing Research</h3>
+          <p class="g">Examine credible existing research, compare perspectives, and identify gaps, disagreements, or limitations in the available evidence.</p>
+          <div class="sub"><h4>Required submission</h4><ul><li>Structured literature review or source review</li><li>Annotated credible sources</li><li>Identified gaps, disagreements, or limitations in existing research</li></ul></div></div>
+      </article>
+      <article class="wk">
+        <div class="when"><b>Week 04</b><span>1–7 November</span></div>
+        <div><h3>Examine the Evidence</h3>
+          <p class="g">Gather relevant evidence, begin analysing it, identify emerging patterns or arguments, and consider the challenges and limitations affecting the investigation.</p>
+          <div class="sub"><h4>Required submission</h4><ul><li>Evidence gathered</li><li>Preliminary analysis</li><li>Emerging patterns or arguments</li><li>Limitations or challenges</li></ul></div></div>
+      </article>
+      <article class="wk">
+        <div class="when"><b>Week 05</b><span>8–14 November</span></div>
+        <div><h3>Build the Complete Project</h3>
+          <p class="g">Bring the research together into a complete first draft with sections appropriate to the subject and a consistent approach to referencing.</p>
+          <div class="sub"><h4>Required submission</h4><ul><li>First complete research draft</li><li>Relevant research sections</li><li>References</li></ul></div></div>
+      </article>
+      <article class="wk">
+        <div class="when"><b>Week 06</b><span>15–21 November</span></div>
+        <div><h3>Improve the Project</h3>
+          <p class="g">Strengthen reasoning, verify claims and citations, address limitations honestly, and ensure that conclusions are supported by the evidence.</p>
+          <div class="sub"><h4>Required submission</h4><ul><li>Revised research draft</li><li>Stronger reasoning</li><li>Checked claims and citations</li><li>Limitations</li><li>Evidence-based conclusion</li></ul></div></div>
+      </article>
+      <article class="wk final">
+        <div class="when"><b>Week 07</b><span>22–28 November</span></div>
+        <div><h3>Finalise and Submit</h3>
+          <p class="g">Complete a final quality check and submit a coherent, well-supported research project with appropriate references.</p>
+          <div class="sub"><h4>Required submission · final</h4><ul><li>Final research project</li><li>Clear research question</li><li>Credible evidence</li><li>Coherent analysis</li><li>Proportionate conclusions</li><li>Proper references</li></ul></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="prizes" id="prizes">
+  <div class="wrap">
+    <span class="eyebrow">Prizes</span>
+    <h2>Rewarding rigorous thinking.</h2>
+    <div class="prize-wrap">
+      <div class="pool"><small>Total prize pool</small><b>$650</b><p>Distributed across seven awards.</p></div>
+      <ul class="awards">
+        <li><span class="l">First place</span><span class="a">$375</span></li>
+        <li><span class="l">Second place</span><span class="a">$150</span></li>
+        <li><span class="l">Third place</span><span class="a">$50</span></li>
+        <li><span class="l">Runner-up awards <small>(three awards)</small></span><span class="a">$25<em>each</em></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <span class="eyebrow">Organisers and partners</span>
+    <h2>Built by a collaboration.</h2>
+    <div class="lead"><small>Lead host</small><b>The Speakers Floor</b></div>
+    <div class="pgroups">
+      <div class="pgroup"><h3>Core collaborators</h3>
+        <ul><li>National Youth Research Journal<span>NYRJ</span></li><li>Minorities in STEM<span>MIS</span></li></ul></div>
+      <div class="pgroup"><h3>Additional partners</h3>
+        <ul class="row"><li>GABA</li><li>TGHC</li><li>The BU1LD</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="tracks" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">FAQ</span>
+    <h2>Common questions.</h2>
+    <div class="faq-list">
+      <details><summary>What is Hackathon ’26?</summary><div>Hackathon ’26 is an international student research hackathon in which participants develop research projects through a structured, seven-week process.</div></details>
+      <details><summary>Is this a coding-only hackathon?</summary><div>No. It focuses on research, evidence, analysis, reasoning, and project development across six interdisciplinary tracks.</div></details>
+      <details><summary>Can beginners participate?</summary><div>The programme is designed to guide participants through the research process, including defining questions, reviewing sources, analysing evidence, and developing a final project.</div></details>
+      <details><summary>What are the six tracks?</summary><div><ul><li>Health &amp; Life Sciences</li><li>Technology &amp; AI</li><li>Data Science &amp; Analytics</li><li>Environment &amp; Sustainability</li><li>Law, Policy &amp; Global Affairs</li><li>Innovation &amp; Entrepreneurship</li></ul></div></details>
+      <details><summary>What must participants submit each week?</summary><div>Submissions follow the seven-week timeline. The <a href="#timeline">timeline</a> lists the requirements for each stage.</div></details>
+      <details><summary>What happens after the final submission?</summary><div>Final submissions are due during 22–28 November 2026. Judging and results details: To be announced.</div></details>
+      <details><summary>What are the prizes?</summary><div>First place $375, second place $150, third place $50, and three runner-up awards of $25 each, for a total prize pool of $650.</div></details>
+      <details><summary>How can participants contact the organisers?</summary><div>Email <a href="mailto:thespeakersfloors.club@gmail.com">thespeakersfloors.club@gmail.com</a>.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h2>Have a question?</h2>
+    <p class="lede">For questions about Hackathon ’26, the research timeline, or participation, contact the organising team.</p>
+    <a class="mail" href="mailto:thespeakersfloors.club@gmail.com">thespeakersfloors.club@gmail.com</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="mark" href="#top">Hackathon <span>’26</span></a>
+        <p style="margin-top:.8rem;max-width:36ch">An international student research hackathon. 11 October – 28 November 2026.</p>
+        <p style="margin-top:.8rem">Lead host: The Speakers Floor</p>
+      </div>
+      <div><h4>Explore</h4>
+        <ul><li><a href="#about">About</a></li><li><a href="#tracks">Tracks</a></li><li><a href="#timeline">Timeline</a></li><li><a href="#prizes">Prizes</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Collaborators and partners</h4>
+        <ul><li>National Youth Research Journal (NYRJ)</li><li>Minorities in STEM (MIS)</li><li>GABA</li><li>TGHC</li><li>The BU1LD</li></ul>
+        <p style="margin-top:1rem"><a href="mailto:thespeakersfloors.club@gmail.com">thespeakersfloors.club@gmail.com</a></p></div>
+    </div>
+    <p class="copy-r">© 2026 Hackathon ’26. Led by The Speakers Floor.</p>
+  </div>
+</footer>
+
+<a class="top" id="top-btn" href="#top" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 15V3M3 9l6-6 6 6"/></svg></a>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger'),links=document.getElementById('links');
+  function set(open){links.classList.toggle('open',open);burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Close menu':'Open menu');}
+  burger.addEventListener('click',function(){set(!links.classList.contains('open'));});
+  links.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){set(false);}});
+
+  var nav=[].slice.call(links.querySelectorAll('a[href^="#"]:not(.btn)'));
+  var map={};nav.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting&&map[en.target.id]){nav.forEach(function(a){a.removeAttribute('aria-current');});map[en.target.id].setAttribute('aria-current','true');}
+    });},{rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});
+  }
+  var topBtn=document.getElementById('top-btn');
+  window.addEventListener('scroll',function(){topBtn.classList.toggle('show',window.scrollY>900);},{passive:true});
+})();
+</script>
+</body>
+</html>
